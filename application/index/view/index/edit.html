@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="__INDEX__/assets/images/favicon.png">
+    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <!-- Custom CSS -->
+    <link href="__INDEX__/assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="__INDEX__/dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__INDEX__/css/css.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        {include file='commond/header'/}
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        {include file='commond/left' /}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">排班管理系统</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="card">
+                <form class="form-horizontal">
+                    <input type="hidden" name="id" value="{$man.id}">
+                    <div class="card-body">
+                        <h4 class="card-title">员工添加</h4>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-3 text-right control-label col-form-label">员工姓名：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name" placeholder="员工姓名" name='name' value="{$man.name}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">员工兴趣：</label>
+                            <div class="col-sm-9">
+                                <select name="interest" id="interest">
+                                    <option value="0"></option>
+                                    {volist name='band' id='val'}
+                                    <option value="{$val.id}" {if $man.interest==$val.id}selected{/if}>{$val.class}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top">
+                        <div class="card-body">
+                            <button type="button" id='tijiao' class="btn btn-primary">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {include file='commond/footer'/}
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="__INDEX__/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="__INDEX__/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="__INDEX__/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="__INDEX__/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="__INDEX__/assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="__INDEX__/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="__INDEX__/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="__INDEX__/dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="__INDEX__/dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="__INDEX__/assets/libs/flot/excanvas.js"></script>
+    <script src="__INDEX__/assets/libs/flot/jquery.flot.js"></script>
+    <script src="__INDEX__/assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="__INDEX__/assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="__INDEX__/assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="__INDEX__/assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="__INDEX__/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="__INDEX__/dist/js/pages/chart/chart-page-init.js"></script>
+
+</body>
+<script>
+$(function(){
+    $('#tijiao').click(function(){
+        var fname=$('#name').val();
+        var ins=$('#interest').val();
+
+        if(fname==""){
+            alert('姓名不能为空！');
+            return ;
+        }
+        else if(ins==0){
+            alert("兴趣不能为空！");
+            return;
+        }
+        else{
+            var url="{:url('edit')}";
+            var dt=$('form').serialize();
+            $.post(url,dt,function(data){
+                if(data==1){
+                    alert("更新成功！");
+                }
+                return;
+            });
+        }
+
+    })
+});
+
+</script>
+</html>
