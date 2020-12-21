@@ -1,0 +1,12 @@
+<script>
+	function del(str,url){
+		var x=confirm(str);
+		if(x){
+			$.post(url,function(data){
+				location.reload();
+			});
+		}
+	}
+</script>
+<footer class="footer text-center">All Rights Reserved by Matrix-admin. Designed and Developed by WrapPixel. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+            </footer>
